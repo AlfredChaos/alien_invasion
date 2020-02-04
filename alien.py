@@ -1,4 +1,7 @@
 import pygame
+import sys
+import os
+
 from pygame.sprite import Sprite
 
 class Alien(Sprite):
@@ -11,7 +14,7 @@ class Alien(Sprite):
         self.ai_settings = ai_settings
 
         # 加载外星人图像，并设置其rect属性
-        self.image = pygame.image.load("D:\\Code\\Python\\alien_invasion\\images\\alien.bmp")
+        self.image = pygame.image.load(os.path.abspath(os.path.dirname(os.path.abspath(sys.argv[0])) + os.path.sep) + "\\images\\alien.bmp")
         self.rect = self.image.get_rect()
 
         # 每个外星人最初都在屏幕左上角附近

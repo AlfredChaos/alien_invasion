@@ -1,13 +1,19 @@
 import pygame
+import os
+import sys
 
-class Ship():
+from pygame.sprite import Sprite
 
-    def __init__(self, screen):
+class Ship(Sprite):
+
+    def __init__(self, ai_settings, screen):
         """初始化飞船并设置其初始位置"""
+        super(Ship, self).__init__()
         self.screen = screen
 
         # 加载飞船图像并获取其外接矩形
-        self.image = pygame.image.load("D:\\Code\\Python\\alien_invasion\\images\\ship.bmp")
+        self.image = pygame.image.load(os.path.abspath(os.path.dirname(os.path.abspath(sys.argv[0])) + os.path.sep) + "\\images\\ship.bmp")
+        #print(os.path.abspath(os.path.dirname(os.path.abspath(sys.argv[0])) + os.path.sep + ".") + "\\images\\ship.bmp")
         self.rect = self.image.get_rect()
         self.screen_rect = screen.get_rect()
 
